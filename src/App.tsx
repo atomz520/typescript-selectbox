@@ -1,5 +1,6 @@
 import { useState }from "react"
 import { Select } from "./Select"
+import { SelectMulti } from "./SelectMulti"
 
 const options = [
   { label: "First", value: 1},
@@ -11,9 +12,11 @@ const options = [
 
 function App() {
   const [value, setValue] = useState<typeof options[0] | undefined>(options[0])
+  const [valueMulti, setValueMulti] = useState<typeof options[0] | undefined>(options[0])
   return (
     <>
       <Select options={options} value={value} onChange={ o => setValue(o)}/>
+      <SelectMulti options={options} value={valueMulti} onChange={ o => setValueMulti(o)}/>
     </>
   )
 }
